@@ -25,6 +25,11 @@ function preload(){
   images.ui_1=loadImage("assets/UI/text_leather_small.png");
   images.ui_2=loadImage("assets/UI/text_leather_large.png");
 
+  images.lay_1=loadImage("assets/Lay/layouts_1.png");
+  images.lay_2=loadImage("assets/Lay/layouts_2.png");
+
+  
+
 }
 
 function setup(){
