@@ -1,35 +1,47 @@
-let images = [];
-let currentState = 0;
+function preload(){
+  images.bg_f1=loadImage("assets/Backgrounds/Feld_Nachmittag.png");
+  images.bg_f2=loadImage("assets/Backgrounds/Feld_Tag.png");
+  images.bg_h1=loadImage("assets/Backgrounds/Höhle_Nacht_Feuer.png");
+  images.bg_h2=loadImage("assets/Backgrounds/Höhle_Nacht.png");
+  images.bg_h3=loadImage("assets/Backgrounds/Höhle_Tag.png");
 
-function preload() {
-  images[0] = loadImage("assets/ch0/00-01.png");
-  images[1] = loadImage("assets/ch1/01-01.png");
+  images.Bun_1=loadImage("assets/Bunnies/bunny_1_bush.png");
+  images.Bun_2=loadImage("assets/Bunnies/bunny_1.png");
+  images.Bun_3=loadImage("assets/Bunnies/bunny_2_bush.png");
+  images.Bun_4=loadImage("assets/Bunnies/bunny_2.png");
+  images.Bun_5=loadImage("assets/Bunnies/bunny_3_bush.png");
+  images.Bun_6=loadImage("assets/Bunnies/bunny_3.png");
+  
+  images.homo_1=loadImage("assets/Homo_Sapiens/waving_hello_2.png");
+  images.homo_2=loadImage("assets/Homo_Sapiens/waving_hello.png");
+  images.homo_3=loadImage("assets/Homo_Sapiens/sitting_homo_sapiens_happy_end.png");
+  images.homo_4=loadImage("assets/Homo_Sapiens/seeking_trails.png");
+  images.homo_5=loadImage("assets/Homo_Sapiens/painting_woman.png");
+  images.homo_6=loadImage("assets/Homo_Sapiens/painting_man.png");
+  images.homo_7=loadImage("assets/Homo_Sapiens/hiding.png");
+  images.homo_8=loadImage("assets/Homo_Sapiens/crouching_crafting.png");
+  images.homo_9=loadImage("assets/Homo_Sapiens/back_with_bow.png");
+  
+  images.ui_1=loadImage("assets/UI/text_leather_small.png");
+  images.ui_2=loadImage("assets/UI/text_leather_large.png");
+
 }
 
-function setup() {
-  createCanvas(1920, 1080);
+function setup(){
+  createCanvas(1920,1080);
+  textSize(36); fill(0);
 }
 
-function draw() {
+function draw(){
   background(0);
-  if (images[currentState]) {
-    let img = images[currentState];
-    let scaleFactor = min(width / img.width, height / img.height);
-    let w = img.width * scaleFactor;
-    let h = img.height * scaleFactor;
-    image(img, (width-w)/2, (height-h)/2, w, h);
-  }
-}
+  let page = pages[currentPage];
+  if(images[page.bg]) image(images[page.bg],0,0);
 
-
-// 键盘翻页
-function keyPressed() {
-  if (key === 'n') { // 下一张
-    currentState++;
-    if (currentState >= images.length) currentState = images.length - 1;
-  }
-  if (key === 'p') { // 上一张
-    currentState--;
-    if (currentState < 0) currentState = 0;
+  switch(page.layout){
+    case "talk": drawTalkLayout(page); break;
+    case "solo": drawSoloLayout(page); break;
+    case "scene": drawSceneLayout(page); break;
+    case "explore": drawExploreLayout(page); break;
+    case "special": drawSpecialLayout(page); break;
   }
 }
