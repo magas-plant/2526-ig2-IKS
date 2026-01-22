@@ -1,5 +1,9 @@
 let fontText;
 let fontUI;
+let pages = [];
+let currentPage = 0;
+let images = {};
+
 
 function preload() {
   images.bg_f1 = loadImage("assets/Backgrounds/Feld_Nachmittag.png");
@@ -30,7 +34,7 @@ function preload() {
   images.ui_3 = loadImage("assets/UI/ui_1.png");
   images.ui_4 = loadImage("assets/UI/ui_2.png");
   images.ui_5 = loadImage("assets/UI/ui_3.png");
-  
+
 
 
   images.lay_1 = loadImage("assets/Lay/layouts_1.png");
@@ -43,9 +47,17 @@ function preload() {
 
 function setup() {
   createCanvas(1920, 1080);
-  pixelDensity(window.devicePixelRatio); // 或 pixelDensity(2);
-  textFont(fontText); // 默认正文
-  
+  pixelDensity(window.devicePixelRatio); // or pixelDensity(2);
+  textFont(fontText); // text
+
+  pages = [
+    ...pages_01,
+    ...pages_02,
+    ...pages_03,
+    ...pages_04,
+    ...pages_05
+  ];
+
   textSize(36); fill(0);
 }
 
@@ -59,12 +71,27 @@ function drawUIFrame() {
   pop();
 }
 
+
 function draw() {
   background(0);
   let page = pages[currentPage];
-  if (images[page.bg]) image(images[page.bg], 0, 0);
-  drawUIFrame();
+  // if (images[page.bg]) image(images[page.bg], 0, 0);
 
+  if (images[page.bg]) {
+    let img = images[page.bg];
+    let scale = max(width / img.width, height / img.height);
+    scale *= page.bgScale || 1;
+
+    let w = img.width * scale;
+    let h = img.height * scale;
+
+    let x = (width - w) / 2 + (page.bgOffset?.x || 0);
+    let y = (height - h) / 2 + (page.bgOffset?.y || 0);
+
+    image(img, x, y, w, h);
+  }
+
+  drawUIFrame();
   switch (page.layout) {
     case "talk": drawTalkLayout(page); break;
     case "solo": drawSoloLayout(page); break;

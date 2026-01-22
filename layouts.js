@@ -13,15 +13,41 @@ function drawImageContain(img, x, y, maxW, maxH, scale = 1) {
 function drawTalkLayout(page) {
     let t = millis() * 0.003;
     let breatheY = sin(t * 0.8) * 2;   // 2px 的轻微上下浮动
+
     drawImageContain(images.ui_1, 470, 700, 1000, 800, 1.4);
-    drawImageContain(images.homo_2, 450 + breatheY, 430, 400, 400, 1.5);
 
-    drawTypewriter(page.text, 750, 820, 980);
-    drawImageContain(images.ui_3, 1600, 830, 150, 150, 1.4);
+    //drawImageContain(images.homo_2, 450 + breatheY, 430, 400, 400, 1.5);
 
+    // 人物：可在 page 对象里配置
+    if (page.character && images[page.character.key]) {
+        let charX = page.character.x;
+        let charY = page.character.y;
+
+        if (page.character.breathe) {
+            charY += breatheY;  // 启用浮动
+        }
+
+        drawImageContain(
+            images[page.character.key],
+            charX,
+            charY,
+            page.character.maxW,
+            page.character.maxH,
+            page.character.scale
+        );
+
+        //文字打字机或静止
+        if (page.textMode === "instant") {
+            text(page.text, 750, 820, 980, 300);
+        } else {
+            drawTypewriter(page.text, 750, 820, 980);
+        }
+        //箭头
+        drawImageContain(images.ui_3, 1600, 830, 150, 150, 1.4);
+    }
 }
 
-// 2.章节标题
+// 2.章节标题 ✅
 function drawSoloLayout(page) {
     if (!page.texts) return;
 
