@@ -53,12 +53,51 @@ const pages_02 = [
         text: "Hey, grab your tools! \nStep into the forest carefully and check the traps your sister set—there might be food waiting.",
         keys: {
             next: "n",
-            nextId: "02-05",   //id of the next page
+            nextId: "02-03",   //id of the next page
             prev: "p",
             prevId: "02-01"
         }
     },
-
+    {
+        id: "02-03",
+        layout: "choice",
+        bg: "bg_f2",
+        options: [
+            {
+                key: "obj_1",          // 正常图片
+                highlightKey: "hlobj_1",  // 高亮图片（透明 PNG）
+                x: 400,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "1"
+            },
+            {
+                key: "obj_1",
+                highlightKey: "hlobj_1",
+                x: 800,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "2"
+            },
+            {
+                key: "obj_1",
+                highlightKey: "hlobj_1",
+                x: 1200,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "3"
+            }
+        ],
+        keys: {
+            next: "n",
+            nextId: "02-05",   //id of the next page
+            prev: "p",
+            prevId: "02-03"
+        }
+    },
     {
         id: "02-05",
         layout: "talk",

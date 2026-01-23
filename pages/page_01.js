@@ -73,9 +73,30 @@ const pages_01 = [
         textMode: "instant",
         keys: {
             next: "n",
-            nextId: "01-06",   //id of the next page
+            nextId: "01-04",   //id of the next page
             prev: "p",
             prevId: "01-02"
+        }
+    },
+    {
+        id: "01-04",
+        layout: "info",
+        bg: "bg_f1",
+        character: {
+            key: "obj_1",   // images 对象里的 key
+            x: 300,          // x 坐标
+            y: 330,          // y 坐标
+            maxW: 400,       // 最大宽度
+            maxH: 400,       // 最大高度
+            scale: 1.1,      // 缩放
+            breathe: false    // 是否启用轻微上下浮动
+        },
+        text: "Ah, you picked stone! \n\nAround 60,000 years ago, our ancestors used sharp stones to make tools for cutting, scraping, and hunting. They’d chip pieces off rocks carefully, shaping them into useful blades and points. Simple, but life-saving!\n\nReady? Follow the on-screen prompts and tap your stone to start crafting.",
+        keys: {
+            next: "n",
+            nextId: "01-06",   //id of the next page
+            prev: "p",
+            prevId: "01-03"
         }
     },
     {
@@ -97,7 +118,7 @@ const pages_01 = [
             next: "n",
             nextId: "02-01",   //id of the next page
             prev: "p",
-            prevId: "01-03"
+            prevId: "01-04"
         }
     },
 ];

@@ -38,7 +38,7 @@ function drawTalkLayout(page) {
 
         //文字打字机或静止
         if (page.textMode === "instant") {
-            text(page.text, 750, 820, 980, 300);
+            text(page.text, 750, 820, 980);
         } else {
             drawTypewriter(page.text, 750, 820, 980);
         }
@@ -92,10 +92,73 @@ function drawSoloLayout(page) {
     pop();
 }
 
+// 3.信息布局
+function drawInfoLayout(page) {
+    let t = millis() * 0.003;
+    let breatheY = sin(t * 0.8) * 2;   // 2px 的轻微上下浮动
 
-function drawSceneLayout(page) {
-    image(images.homo_1, 800, 400);
+    drawImageContain(images.ui_2, 980, 50, 1000, 800, 1.2);
+    drawImageContain(images.homo_2, 860, 500, 400, 400, 1.3);
+
+    // 人物：可在 page 对象里配置
+    if (page.character && images[page.character.key]) {
+        let charX = page.character.x;
+        let charY = page.character.y;
+
+        if (page.character.breathe) {
+            charY += breatheY;  // 启用浮动
+        }
+
+        drawImageContain(
+            images[page.character.key],
+            charX,
+            charY,
+            page.character.maxW,
+            page.character.maxH,
+            page.character.scale
+        );
+
+        //文字打字机或静止
+        if (page.textMode === "instant") {
+            text(page.text, 1000, 820, 980);
+        } else {
+            drawTypewriter(page.text, 1100, 220, 600);
+        }
+        //箭头
+        drawImageContain(images.ui_3, 1500, 750, 150, 150, 1.4);
+    }
 }
+
+// 4.选择布局
+function drawChoiceLayout(page) {
+    console.log("drawing choice layout", page.id);
+    for (let i = 0; i < page.options.length; i++) {
+        const opt = page.options[i];
+
+        // 底图
+        drawImageContain(
+            images[opt.key],
+            opt.x,
+            opt.y,
+            opt.w,
+            opt.h,
+            1
+        );
+
+        // 如果被选中，叠加高亮图
+        if (selectedOptionIndex === i && opt.highlightKey) {
+            drawImageContain(
+                images[opt.highlightKey],
+                opt.x,
+                opt.y,
+                opt.w,
+                opt.h,
+                1
+            );
+        }
+    }
+}
+
 
 function drawExploreLayout(page) {
     image(images.homo_1, 600, 500);

@@ -35,6 +35,8 @@ function preload() {
   images.ui_4 = loadImage("assets/UI/ui_2.png");
   images.ui_5 = loadImage("assets/UI/ui_3.png");
 
+  images.obj_1 = loadImage("assets/Objects/ocre.png");
+  images.hlobj_1 = loadImage("assets/Objects/selected/ocre_selected.png");
 
 
   images.lay_1 = loadImage("assets/Lay/layouts_1.png");
@@ -95,7 +97,8 @@ function draw() {
   switch (page.layout) {
     case "talk": drawTalkLayout(page); break;
     case "solo": drawSoloLayout(page); break;
-    case "scene": drawSceneLayout(page); break;
+    case "info": drawInfoLayout(page); break;
+    case "choice": drawChoiceLayout(page); break;
     case "explore": drawExploreLayout(page); break;
     case "special": drawSpecialLayout(page); break;
   }

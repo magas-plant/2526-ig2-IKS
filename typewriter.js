@@ -1,5 +1,5 @@
 let lastTime = 0;
-let interval = 60;
+let interval = 30;
 
 let charIndex = 0;
 let displayText = "";
