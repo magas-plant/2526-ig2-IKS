@@ -66,7 +66,7 @@ function setup() {
 function drawUIFrame() {
   push();
   noStroke();
-  fill(255, 200);
+  fill(254, 236, 190, 220);
   rect(
     60, 730, 400, 300, 24
   );

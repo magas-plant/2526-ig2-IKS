@@ -1,4 +1,3 @@
-
 function drawImageContain(img, x, y, maxW, maxH, scale = 1) {
     let baseScale = min(maxW / img.width, maxH / img.height);
     let s = baseScale * scale;
@@ -120,7 +119,7 @@ function drawInfoLayout(page) {
 
         //文字打字机或静止
         if (page.textMode === "instant") {
-            text(page.text, 1000, 820, 980);
+            text(page.text, 1100, 220, 600);
         } else {
             drawTypewriter(page.text, 1100, 220, 600);
         }

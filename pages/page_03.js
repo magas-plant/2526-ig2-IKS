@@ -37,6 +37,75 @@ const pages_03 = [
             prevId: "02-01"
         }
     },
+    {
+        id: "03-02",
+        layout: "talk",
+        bg: "bg_f1",
+        character: {
+            key: "homo_9",   // images 对象里的 key
+            x: 480,          // x 坐标
+            y: 430,          // y 坐标
+            maxW: 400,       // 最大宽度
+            maxH: 400,       // 最大高度
+            scale: 1.5,      // 缩放
+            breathe: true    // 是否启用轻微上下浮动
+        },
+        text: "After catching the rabbit, you head back along your footprints. \nSuddenly, you hear unfamiliar voices-others are following. \nA group of strangers is approaching.",
+        textMode: "instant",
+        keys: {
+            next: "n",
+            nextId: "03-03",   //id of the next page
+            prev: "p",
+            prevId: "03-01"
+        }
+    },
+    {
+        id: "03-05",
+        layout: "talk",
+        bg: "bg_f1",
+        character: {
+            key: "homo_9",   // images 对象里的 key
+            x: 480,          // x 坐标
+            y: 430,          // y 坐标
+            maxW: 400,       // 最大宽度
+            maxH: 400,       // 最大高度
+            scale: 1.5,      // 缩放
+            breathe: true    // 是否启用轻微上下浮动
+        },
+        text: "They move closer, watching you. Speak carefully—what you do next could change everything.",
+        textMode: "instant",
+        keys: {
+            next: "n",
+            nextId: "03-06",   //id of the next page
+            prev: "p",
+            prevId: "03-04"
+        }
+    },
+    {
+        id: "03-09",
+        layout: "talk",
+        bg: "bg_f1",
+        character: {
+            key: "homo_9",   // images 对象里的 key
+            x: 480,          // x 坐标
+            y: 430,          // y 坐标
+            maxW: 400,       // 最大宽度
+            maxH: 400,       // 最大高度
+            scale: 1.5,      // 缩放
+            breathe: true    // 是否启用轻微上下浮动
+        },
+        text: "The Neanderthals seem angry. \nFlip the page and find out what comes next.",
+        textMode: "instant",
+        keys: {
+            next: "n",
+            nextId: "04-01",   //id of the next page
+            prev: "p",
+            prevId: "03-01"
+        }
+    },
+
+
+
 
    
 ];
