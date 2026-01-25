@@ -185,8 +185,27 @@ function drawDialogLayout(page) {
 
 }
 
-function drawExploreLayout(page) {
-    image(images.homo_1, 600, 500);
-    textSize(36);
-    text(page.text, 200, 200, 1600, 200);
+
+// 6.纯画面布局
+function drawDisplayLayout(page) {
+    let t = millis() * 0.003;
+    let breatheY = sin(t * 0.8) * 2;   // 2px 的轻微上下浮动
+    if (page.images && page.images.length > 0) {
+        for (let img of page.images) {
+            if (!images[img.key]) continue;
+
+            let yOffset = 0;
+            if (img.breathe) yOffset = breatheY;
+
+            drawImageContain(
+                images[img.key],
+                img.x,
+                img.y + yOffset,
+                img.maxW,
+                img.maxH,
+                img.scale || 1
+            );
+        }
+    }
+
 }

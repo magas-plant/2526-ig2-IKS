@@ -58,46 +58,49 @@ const pages_02 = [
             prevId: "02-01"
         }
     },
-    {
+     {
         id: "02-03",
-        layout: "choice",
-        bg: "bg_f2",
-        options: [
+        layout: "display",
+        bg: "bg_w1",
+
+        images: [
             {
-                key: "obj_1",          // 正常图片
-                highlightKey: "hlobj_1",  // 高亮图片（透明 PNG）
-                x: 400,
-                y: 500,
-                w: 300,
-                h: 300,
-                selectKey: "1"
+                key: "trap_1",
+                x: 750,
+                y: 520,
+                maxW: 200,
+                maxH: 800,
+                scale: 1,
+                breathe: false
+            },
+             {
+                key: "trap_2",
+                x: 550,
+                y: 720,
+                maxW: 230,
+                maxH: 800,
+                scale: 1.2,
+                breathe: false
             },
             {
-                key: "obj_1",
-                highlightKey: "hlobj_1",
-                x: 800,
-                y: 500,
-                w: 300,
-                h: 300,
-                selectKey: "2"
-            },
-            {
-                key: "obj_1",
-                highlightKey: "hlobj_1",
-                x: 1200,
-                y: 500,
-                w: 300,
-                h: 300,
-                selectKey: "3"
+                key: "trap_3",
+                x: 900,
+                y: 870,
+                maxW: 600,
+                maxH: 800,
+                scale: 1.2,
+                breathe: false
             }
         ],
+
         keys: {
             next: "n",
-            nextId: "02-05",   //id of the next page
+            nextId: "02-04",
             prev: "p",
-            prevId: "02-03"
+            prevId: "02-02"
         }
     },
+    
     {
         id: "02-04",
         layout: "info",
@@ -141,6 +144,46 @@ const pages_02 = [
             nextId: "02-07",   //id of the next page
             prev: "p",
             prevId: "02-01"
+        }
+    },
+    {
+        id: "02-06",
+        layout: "choice",
+        bg: "bg_w1",
+        options: [
+            {
+                key: "Bun_1",          // 正常图片
+                highlightKey: "Bun_2",  // 高亮图片（透明 PNG）
+                x: 400,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "1"
+            },
+            {
+                key: "Bun_3",
+                highlightKey: "Bun_4",
+                x: 800,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "2"
+            },
+            {
+                key: "Bun_5",
+                highlightKey: "Bun_6",
+                x: 1200,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "3"
+            }
+        ],
+        keys: {
+            next: "n",
+            nextId: "02-07",   //id of the next page
+            prev: "p",
+            prevId: "02-05"
         }
     },
      {

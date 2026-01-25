@@ -11,6 +11,7 @@ function preload() {
   images.bg_h1 = loadImage("assets/Backgrounds/Höhle_Nacht_Feuer.png");
   images.bg_h2 = loadImage("assets/Backgrounds/Höhle_Nacht.png");
   images.bg_h3 = loadImage("assets/Backgrounds/Höhle_Tag.png");
+  images.bg_w1 = loadImage("assets/Backgrounds/Wald.png");
 
   images.Bun_1 = loadImage("assets/Bunnies/bunny_1_bush.png");
   images.Bun_2 = loadImage("assets/Bunnies/bunny_1.png");
@@ -18,6 +19,10 @@ function preload() {
   images.Bun_4 = loadImage("assets/Bunnies/bunny_2.png");
   images.Bun_5 = loadImage("assets/Bunnies/bunny_3_bush.png");
   images.Bun_6 = loadImage("assets/Bunnies/bunny_3.png");
+
+  images.trap_1 = loadImage("assets/Bunnies/trap1.png");
+  images.trap_2 = loadImage("assets/Bunnies/trap2.png");
+  images.trap_3 = loadImage("assets/Bunnies/trap3.png");
 
   images.homo_1 = loadImage("assets/Homo_Sapiens/waving_hello_2.png");
   images.homo_2 = loadImage("assets/Homo_Sapiens/waving_hello.png");
@@ -41,9 +46,18 @@ function preload() {
   images.ui_4 = loadImage("assets/UI/ui_2.png");
   images.ui_5 = loadImage("assets/UI/ui_3.png");
 
-  images.obj_1 = loadImage("assets/Objects/ocre.png");
-  images.hlobj_1 = loadImage("assets/Objects/selected/ocre_selected.png");
-
+  images.obj_1 = loadImage("assets/Objects/twig_1.png");
+  images.hlobj_1 = loadImage("assets/Objects/selected/twig_1_selected.png");
+  images.obj_2 = loadImage("assets/Objects/twig_2.png");
+  images.hlobj_2 = loadImage("assets/Objects/selected/twig_2_selected.png");
+  images.obj_3 = loadImage("assets/Objects/twig_3.png");
+  images.hlobj_3 = loadImage("assets/Objects/selected/twig_3_selected.png");
+  images.obj_4 = loadImage("assets/Objects/charcoal.png");
+  images.hlobj_4 = loadImage("assets/Objects/selected/charcoal_selected.png");
+  images.obj_5 = loadImage("assets/Objects/limestone_chalk.png");
+  images.hlobj_5 = loadImage("assets/Objects/selected/limestone_chalk_selected.png");
+  images.obj_6 = loadImage("assets/Objects/ocre.png");
+  images.hlobj_6 = loadImage("assets/Objects/selected/ocre_selected.png");
 
   images.lay_1 = loadImage("assets/Lay/layouts_1.png");
   images.lay_2 = loadImage("assets/Lay/layouts_2.png");
@@ -106,6 +120,6 @@ function draw() {
     case "info": drawInfoLayout(page); break;
     case "choice": drawChoiceLayout(page); break;
     case "dialog": drawDialogLayout(page); break;
-    case "special": drawSpecialLayout(page); break;
+    case "display": drawDisplayLayout(page); break;
   }
 }

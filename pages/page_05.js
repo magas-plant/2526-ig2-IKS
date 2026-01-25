@@ -80,6 +80,46 @@ const pages_05 = [
         }
     },
     {
+        id: "05-04",
+        layout: "choice",
+        bg: "bg_h1",
+        options: [
+            {
+                key: "obj_4",          // 正常图片
+                highlightKey: "hlobj_4",  // 高亮图片（透明 PNG）
+                x: 400,
+                y: 450,
+                w: 300,
+                h: 300,
+                selectKey: "1"
+            },
+            {
+                key: "obj_5",
+                highlightKey: "hlobj_5",
+                x: 800,
+                y: 450,
+                w: 300,
+                h: 300,
+                selectKey: "2"
+            },
+            {
+                key: "obj_6",
+                highlightKey: "hlobj_6",
+                x: 1200,
+                y: 450,
+                w: 300,
+                h: 300,
+                selectKey: "3"
+            }
+        ],
+        keys: {
+            next: "n",
+            nextId: "05-05",   //id of the next page
+            prev: "p",
+            prevId: "05-03"
+        }
+    },
+    {
         id: "05-06",
         layout: "talk",
         bg: "bg_h2",

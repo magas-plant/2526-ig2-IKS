@@ -58,6 +58,46 @@ const pages_04 = [
         }
     },
     {
+        id: "04-03",
+        layout: "choice",
+        bg: "bg_f1",
+        options: [
+            {
+                key: "obj_1",          // 正常图片
+                highlightKey: "hlobj_1",  // 高亮图片（透明 PNG）
+                x: 400,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "1"
+            },
+            {
+                key: "obj_2",
+                highlightKey: "hlobj_2",
+                x: 800,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "2"
+            },
+            {
+                key: "obj_3",
+                highlightKey: "hlobj_3",
+                x: 1200,
+                y: 500,
+                w: 300,
+                h: 300,
+                selectKey: "3"
+            }
+        ],
+        keys: {
+            next: "n",
+            nextId: "04-05",   //id of the next page
+            prev: "p",
+            prevId: "04-03"
+        }
+    },
+    {
         id: "04-04",
         layout: "info",
         bg: "bg_f1",
@@ -77,6 +117,30 @@ const pages_04 = [
             nextId: "04-06",   //id of the next page
             prev: "p",
             prevId: "04-03"
+        }
+    },
+    {
+        id: "04-05",
+        layout: "display",
+        bg: "bg_h2",
+
+        images: [
+            {
+                key: "nean_5",
+                x: 430,
+                y: 150,
+                maxW: 1000,
+                maxH: 800,
+                scale: 1.2,
+                breathe: false
+            }
+        ],
+
+        keys: {
+            next: "n",
+            nextId: "04-06",
+            prev: "p",
+            prevId: "04-04"
         }
     },
     {

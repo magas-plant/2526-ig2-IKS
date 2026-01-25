@@ -60,6 +60,39 @@ const pages_03 = [
         }
     },
     {
+        id: "03-03",
+        layout: "display",
+        bg: "bg_f2",
+
+        images: [
+            {
+                key: "nean_2",
+                x: 830,
+                y: 150,
+                maxW: 1000,
+                maxH: 800,
+                scale: 1.2,
+                breathe: false
+            },
+             {
+                key: "nean_3",
+                x: 1130,
+                y: 150,
+                maxW: 1000,
+                maxH: 800,
+                scale: 1.2,
+                breathe: false
+            }
+        ],
+
+        keys: {
+            next: "n",
+            nextId: "03-04",
+            prev: "p",
+            prevId: "03-02"
+        }
+    },
+    {
         id: "03-05",
         layout: "talk",
         bg: "bg_f1",
