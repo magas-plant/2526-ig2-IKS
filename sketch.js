@@ -2,12 +2,15 @@ let fontText;
 let fontUI;
 let pages = [];
 let currentPage = 0;
+let popAnimations = {};
+
+
 let images = {};
 let videos = {}; // 全局存视频对象
 
 
 function preload() {
-  preloadBGM();   // 👈 加这一句
+  preloadBGM();   // 
   
   images.bg_f1 = loadImage("assets/Backgrounds/Feld_Nachmittag.png");
   images.bg_f2 = loadImage("assets/Backgrounds/Feld_Tag.png");
@@ -62,6 +65,9 @@ function preload() {
   images.obj_6 = loadImage("assets/Objects/ocre.png");
   images.hlobj_6 = loadImage("assets/Objects/selected/ocre_selected.png");
 
+  images.obj_7 = loadImage("assets/Objects/stone_set.png");
+  images.obj_8 = loadImage("assets/Objects/finished_weapon.png");
+
   images.lay_1 = loadImage("assets/Lay/layouts_1.png");
   images.lay_2 = loadImage("assets/Lay/layouts_2.png");
 
@@ -96,7 +102,7 @@ function drawUIFrame() {
   noStroke();
   fill(254, 236, 190, 220);
   rect(
-    60, 730, 400, 300, 24
+    10, 730, 450, 340, 12
   );
   pop();
 }

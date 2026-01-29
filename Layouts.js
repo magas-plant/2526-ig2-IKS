@@ -11,40 +11,79 @@ function drawImageContain(img, x, y, maxW, maxH, scale = 1) {
 // 1.对话布局
 function drawTalkLayout(page) {
     let t = millis() * 0.003;
-    let breatheY = sin(t * 0.8) * 2;   // 2px 的轻微上下浮动
+    let breatheY = sin(t * 0.8) * 2;
 
+    // UI底板
     drawImageContain(images.ui_1, 470, 700, 1000, 800, 1.4);
 
-    //drawImageContain(images.homo_2, 450 + breatheY, 430, 400, 400, 1.5);
+    // 👇 多角色绘制
+    // 👇 统一的角色绘制入口
+    let charList = [];
 
-    // 人物：可在 page 对象里配置
-    if (page.character && images[page.character.key]) {
-        let charX = page.character.x;
-        let charY = page.character.y;
-
-        if (page.character.breathe) {
-            charY += breatheY;  // 启用浮动
-        }
-
-        drawImageContain(
-            images[page.character.key],
-            charX,
-            charY,
-            page.character.maxW,
-            page.character.maxH,
-            page.character.scale
-        );
-
-        //文字打字机或静止
-        if (page.textMode === "instant") {
-            text(page.text, 750, 820, 980);
-        } else {
-            drawTypewriter(page.text, 750, 820, 980);
-        }
-        //箭头
-        drawImageContain(images.ui_3, 1600, 830, 150, 150, 1.4);
+    // 新结构：多个角色
+    if (page.characters) {
+        charList = page.characters;
     }
+    // 旧结构：单个角色（兼容老页面）
+    else if (page.character) {
+        charList = [page.character];
+    }
+
+    // 开始画
+    charList.forEach((c, index) => {
+    if (!images[c.key]) return;
+
+    let charX = c.x;
+    let charY = c.y + (c.breathe ? breatheY : 0);
+
+    let finalScale = c.scale;
+
+    // 👇 pop 入场动画
+    if (c.pop) {
+        let id = page.id + "_" + index;
+
+        if (!popAnimations[id]) {
+            popAnimations[id] = new PopAnimator(500, 1.25);
+        }
+
+        finalScale *= popAnimations[id].getScale();
+    }
+
+    drawImageContain(
+        images[c.key],
+        charX,
+        charY,
+        c.maxW,
+        c.maxH,
+        finalScale
+    );
+});
+
+// 👇 可选高光圆圈（呼吸闪烁）
+    if (page.highlights) {
+        push();
+        noStroke();
+
+        page.highlights.forEach((h, i) => {
+            // 用正弦做 alpha 呼吸闪烁
+            let alpha = h.color[3] * (0.5 + 0.5 * sin(t * 1 )); 
+            fill(h.color[0], h.color[1], h.color[2], alpha);
+            circle(h.x, h.y, h.r);
+        });
+
+        pop();
+    }
+    // 文字
+    if (page.textMode === "instant") {
+        text(page.text, 750, 820, 980);
+    } else {
+        drawTypewriter(page.text, 750, 820, 980);
+    }
+
+    // 下一页箭头
+    drawImageContain(images.ui_3, 1600, 830, 150, 150, 1.4);
 }
+
 
 // 2.章节标题 ✅
 function drawSoloLayout(page) {
