@@ -30,7 +30,7 @@ const pages_05 = [
         ],
         keys: {
             next: "c",
-            nextId: "05-08",   //id of the next page
+            nextId: "05-02",   //id of the next page
             prev: "p",
             prevId: "04-09"
         }
@@ -174,8 +174,20 @@ const pages_05 = [
             prevId: "05-06"
         }
     },
-{
+    {
         id: "05-08",
+        layout: "display",
+        bg: "bg_05",
+
+        keys: {
+            next: "c",
+            nextId: "05-09",
+            prev: "p",
+            prevId: "05-07"
+        }
+    },
+{
+        id: "05-09",
         layout: "display",
         bg: "bg_h1",
 
@@ -202,13 +214,13 @@ const pages_05 = [
 
         keys: {
             next: "c",
-            nextId: "05-09",
+            nextId: "05-10",
             prev: "p",
-            prevId: "05-07"
+            prevId: "05-08"
         }
     },
     {
-        id: "05-09",
+        id: "05-10",
         layout: "talk",
         bg: "bg_h1",
         character: {
@@ -224,14 +236,14 @@ const pages_05 = [
         textMode: "instant",
         keys: {
             next: "n",
-            nextId: "05-10",   //id of the next page
+            nextId: "05-11",   //id of the next page
             prev: "p",
-            prevId: "05-08"
+            prevId: "05-09"
         }
     },
     
  {
-        id: "05-10",
+        id: "05-11",
         layout: "solo2",
         bg: "bg_h2",
         texts: [
@@ -247,7 +259,7 @@ const pages_05 = [
             next: "c",
             nextId: null,   //id of the next page
             prev: "p",
-            prevId: "05-09"
+            prevId: "05-10"
         }
     },
    

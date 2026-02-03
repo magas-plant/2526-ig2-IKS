@@ -19,6 +19,7 @@ function preload() {
   images.bg_w1 = loadImage("assets/Backgrounds/Wald.png");
   images.bg_fl = loadImage("assets/Backgrounds/Fluss.png");
   images.bg_00 = loadImage("assets/Backgrounds/00-02.png");
+  images.bg_05 = loadImage("assets/Backgrounds/05-08.png");
 
   images.Bun_1 = loadImage("assets/Bunnies/bunny_1_bush.png");
   images.Bun_2 = loadImage("assets/Bunnies/bunny_1.png");
