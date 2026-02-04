@@ -7,6 +7,12 @@ function goToPage(id) {
   let index = pages.findIndex(p => p.id === id);
 
   if (index !== -1) {
+    // Prüfen ob wir bereits auf dieser Seite sind
+    if (currentPage === index) {
+      console.log(`ℹ️ Bereits auf Seite ${id}`);
+      return;
+    }
+    
     currentPage = index;
     resetText();
 
@@ -28,6 +34,8 @@ function goToPage(id) {
       }
     }
 
+    console.log(`✅ Seite gewechselt zu: ${id} (Index: ${index})`);
+
   } else {
     console.warn("找不到页面 id:", id);
   }
@@ -47,6 +55,9 @@ function goToChapter(chapterNumber) {
 
 
 function keyPressed() {
+  // Aktivität registrieren (für Idle-Timer)
+  updateActivity();
+  
   // ✅ 第一次用户按键解锁媒体
   if (!mediaUnlocked) {
     mediaUnlocked = true;

@@ -131,6 +131,8 @@ function draw() {
   // image(videos.intro, 0, 0, width, height);
   let page = pages[currentPage];
 
+  // Idle-Timer prüfen
+  checkIdleTimeout();
 
   // if (images[page.bg]) image(images[page.bg], 0, 0);
 
